@@ -21,16 +21,41 @@ class FamilyStructure:
 
     def add_member(self, member):
         # fill this method and update the return
-        pass
+        if 'id' in member:
+            member['last_name'] = self.last_name
+            self._members.append(member)
+        else:
+            member['id'] = self._generateId()
+            member['last_name'] = self.last_name
+            self._members.append(member)
+        return None
 
     def delete_member(self, id):
         # fill this method and update the return
-        pass
+        for person in range(len(self._members)):
+            print("THIS IS PERSON", person)
+            print("THIS IS MEMBERS", self._members)
+            if self._members[person]['id'] == id:
+                self._members.pop(person)
+        return None
 
     def get_member(self, id):
         # fill this method and update the return
-        pass
+        for person in self._members:
+            if person['id'] == id:
+                return person
+        return 'member does not exist'
+
+    def get_member_name(self, name):
+        # fill this method and update the return
+        for person in self._members:
+            if person['first_name'] == name:
+                return person
+        return 'member does not exist'
 
     # this method is done, it returns a list with all the family members
     def get_all_members(self):
-        return self._members
+        if len(self._members) > 0:
+            return self._members
+        else:
+            return 'array is empty'
