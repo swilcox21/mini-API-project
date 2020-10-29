@@ -33,11 +33,11 @@ class FamilyStructure:
     def delete_member(self, id):
         # fill this method and update the return
         for person in range(len(self._members)):
-            print("THIS IS PERSON", person)
-            print("THIS IS MEMBERS", self._members)
+            print('THIS IS PERSON', person)
+            print('THIS IS MEMBERS', self._members)
             if self._members[person]['id'] == id:
                 self._members.pop(person)
-        return None
+                return None
 
     def get_member(self, id):
         # fill this method and update the return
